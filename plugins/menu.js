@@ -20,7 +20,7 @@ const defaultMenu = {
 *│• Tanggal Islam : %dateIslamic*
 *│• Waktu : %time*
 *╰───────────*
-*╭─❏ •❗「 Info 」,
+*╭─❏ •❗「 Info 」*
 *│• Uptime: %uptime (%muptime)*
 *│• Database: %rtotalreg dari %totalreg*
 *╰───────────*
