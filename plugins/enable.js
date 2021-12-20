@@ -140,7 +140,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.groupOnly = isEnable
+      settings.groupOnly = isEnable
       break
     case 'backup':
       isAll = true
@@ -148,7 +148,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.backup = isEnable
+      settings.backup = isEnable
       break
     case 'anticall':
       isAll = true
@@ -156,7 +156,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.anticall = isEnable
+      settings.anticall = isEnable
       break
     case 'antitroli':
       isAll = true
@@ -164,7 +164,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.antitroli = isEnable
+      settings.antitroli = isEnable
       break
     case 'autoread':
       isAll = true
@@ -188,7 +188,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.antispam = isEnable
+      settings.antispam = isEnable
       break
     case 'anon':
       isAll = true
@@ -196,7 +196,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.anon = isEnable
+      settings.anon = isEnable
       break
     case 'nsfw':
       isAll = true
@@ -204,7 +204,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.nsfw = isEnable
+      settings.nsfw = isEnable
       break
     case 'jadibot':
       isAll = true
@@ -212,7 +212,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.jadibot = isEnable
+      settings.jadibot = isEnable
       break
     case 'simi':
       if (m.isGroup) {
