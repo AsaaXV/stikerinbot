@@ -8,28 +8,28 @@ let handler = async (m, { conn }) => {
     let uptime = clockString(_uptime)
 
     m.reply(`
-┌─〔 Status 〕
-├ Aktif selama ${uptime}
-├ Baterai ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-├ *${groups.length}* Grup
-├ *${chats.length - groups.length}* Chat Pribadi
-├ *${Object.keys(global.db.data.users).length}* Pengguna
-├ *${totaljadibot.length}* Jadibot
-├ *${conn.blocklist.length}* Terblock
-├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
-└────
+*╭─❏ •❗「 STATUS 」*
+*│➤ AKTIF SELAMA : ${uptime}*
+*│➤ BATERAIi : ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}*
+*│➤ GRUP : ${groups.length}*
+*│➤ CHAT PRIBADI : ${chats.length - groups.length}*
+*│➤ PENGGUNA : ${Object.keys(global.db.data.users).length}*
+*│➤ JADI BOT : ${totaljadibot.length}*
+*│➤ TERBLOCK : ${conn.blocklist.length}*
+*│➤ CHAT TERBANNED : ${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}*
+*│➤ PENGGUNA TERBANNED : ${Object.entries(global.db.data.users).filter(user => user[1].banned).length}*
+*╰───────❏*
 
-┌─〔 Pengaturan 〕
-├ ${anon ? '✅' : '❌'} *Anon Chat*
-├ ${anticall ? '✅' : '❌'} *Anti Call*
-├ ${antispam ? '✅' : '❌'} *Anti Spam*
-├ ${antitroli ? '✅' : '❌'} *Anti Troli*
-├ ${backup ? '✅' : '❌'} *Auto Backup DB*
-├ ${groupOnly ? '✅' : '❌'} *Mode Grup*
-├ ${jadibot ? '✅' : '❌'} *Jadi Bot*
-├ ${nsfw ? '✅' : '❌'} *Mode Nsfw*
-└────
+*╭─❏ •❗「 INFO BOT 」"
+*│➤ ANON CHAT : ${anon ? '✅' : '❌'}*
+*│➤ ANTI CALL : ${anticall ? '✅' : '❌'}*
+*│➤ ANTI SPAM ${antispam ? '✅' : '❌'}*
+*│➤ ANTI TROLI : ${antitroli ? '✅' : '❌'}*
+*│➤ AUTO BACUP DB : ${backup ? '✅' : '❌'}*
+*│➤ MODE GRUP : ${groupOnly ? '✅' : '❌'}*
+*│➤ JADI BOT : ${jadibot ? '✅' : '❌'}*
+*│➤ MODE NSFW : ${nsfw ? '✅' : '❌'}*
+*╰─────────────❏*
     `.trim())
 }
 handler.help = ['botstatus']

@@ -30,7 +30,7 @@ ${devote.map(u => '@' + u.split('@')[0]).join('\n')}
 
 _by ariffb_
     `.trim()
-    await conn.send2Button(m.chat, caption, '© stikerin', 'UPVOTE', `${usedPrefix}upvote`, 'DEVOTE', `${usedPrefix}devote`, m, { contextInfo: { mentionedJid } })
+    await conn.send2Button(m.chat, caption, '© BotBang', 'UPVOTE', `${usedPrefix}upvote`, 'DEVOTE', `${usedPrefix}devote`, m, { contextInfo: { mentionedJid } })
 }
 handler.help = ['upvote', 'devote']
 handler.tags = ['vote']

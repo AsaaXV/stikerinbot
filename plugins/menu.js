@@ -5,28 +5,27 @@ let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 const defaultMenu = {
-  before: `
-┌─〔 %me 〕
-├ Hai, %name!
-│
-├ Tersisa *%limit Limit*
-├ Role *%role*
-├ Level *%level (%exp / %maxexp)* [%xp4levelup]
-├ %totalexp XP secara Total
-│ 
-├ Tanggal: *%week %weton, %date*
-├ Tanggal Islam: *%dateIslamic*
-├ Waktu: *%time*
-│
-├ Uptime: *%uptime (%muptime)*
-├ Database: %rtotalreg dari %totalreg
-├ Github:
-├ %github
-└────
+  before: `「 BotBang 」
+
+*╭─❏ •❗「 info User 」*
+*│• User : %name!*
+*│• Tersisa : %limit Limit*
+*│• Role : %role*
+*│• Level : %level (%exp / %maxexp)* [%xp4levelup]
+*╰───────────*
+*╭─❏ •❗「 Waktu 」*
+*│• Tanggal : %week %weton, %date*
+*│• Tanggal Islam : %dateIslamic*
+*│• Waktu : %time*
+*╰───────────*
+*╭─❏ •❗「 Info 」,
+*│• Uptime: %uptime (%muptime)*
+*│• Database: %rtotalreg dari %totalreg*
+*╰───────────*
 %readmore`.trimStart(),
-  header: '┌─〔 %category 〕',
-  body: '├ %cmd %islimit %isPremium',
-  footer: '└────\n',
+  header: '*╭─❏ •❗〔 %category 〕*',
+  body: '*│•  %cmd %islimit %isPremium*',
+  footer: '*╰───────────*\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
