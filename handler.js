@@ -340,12 +340,12 @@ module.exports = {
         let settings = global.db.data.settings[this.user.jid]
         if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
         if (settings) {
-          if (!'anon' in settings) settings.anon = true
+          if (!'anon' in settings) settings.anon = false
           if (!'anticall' in settings) settings.anticall = true
           if (!'antispam' in settings) settings.antispam = true
           if (!'antitroli' in settings) settings.antitroli = true
           if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
-          if (!'backup' in settings) settings.backup = false
+          if (!'backup' in settings) settings.backup = true
           if (!'buggc' in settings) settings.buggc = true
           if (!isNumber(settings.backupTime)) settings.backupTime = 0
           if (!'group' in settings) settings.group = false
@@ -354,12 +354,12 @@ module.exports = {
           if (!'restrict' in settings) settings.restrict = false
           if (!isNumber(settings.status)) settings.status = 0
         } else global.db.data.settings[this.user.jid] = {
-          anon: true,
+          anon: false,
           anticall: true,
           antispam: true,
           antitroli: true,
           autoupdatestatus: false,
-          backup: false,
+          backup: true,
           buggc: true,
           backupTime: 0,
           group: false,
