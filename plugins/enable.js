@@ -105,6 +105,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         throw false
       }
       chat.antiLink = isEnable
+      break
     case 's':
     case 'stiker':
       if (m.isGroup) {
@@ -114,6 +115,24 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         }
       }
       chat.stiker = isEnable
+      break
+     case 'rpg':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.rpg = isEnable
+      break
+    case 'nsfw':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.nsfw = isEnable
       break
     case 'autolevelup':
     case 'levelup':
@@ -198,13 +217,13 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       setting.anon = isEnable
       break
-    case 'nsfw':
+    case 'onsfw':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.nsfw = isEnable
+      opts['nsfw'] = isEnable
       break
     case 'jadibot':
       isAll = true
@@ -218,11 +237,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (m.isGroup) {
         global.dfail('private', m, conn)
         throw false
-
-      } else if (!(isAdmin || isOwner)) {
-        global.dfail('admin', m, conn)
-        throw false
-      }
+      } 
       chat.simi = isEnable
       break
     default:
@@ -230,6 +245,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ┌〔 Daftar Opsi 〕${isOwner ? '\n├ anon\n├ antispam\n├ antitroli\n├ autoread\n├ backup\n├ clear\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ mycontact' : ''}
 ├ antilink
 ├ autolevelup
+├ rpg
 ├ delete
 ├ detect
 ├ document
