@@ -113,7 +113,7 @@ module.exports = {
           if (!'antispam' in settings) settings.antispam = true
           if (!'antitroli' in settings) settings.antitroli = true
           if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
-          if (!'backup' in settings) settings.backup = false
+          if (!'backup' in settings) settings.backup = true
           if (!'buggc' in settings) settings.buggc = true
           if (!isNumber(settings.backupTime)) settings.backupTime = 0
           if (!'group' in settings) settings.group = false
@@ -127,7 +127,7 @@ module.exports = {
           antispam: true,
           antitroli: true,
           autoupdatestatus: false,
-          backup: false,
+          backup: true,
           buggc: true,
           backupTime: 0,
           group: false,
