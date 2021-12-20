@@ -12,8 +12,8 @@ handler.all = async function (m, { isBlocked }) {
     try {
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
             await this.send2Button(m.chat,
-                isBanned ? 'BotBang tidak aktif' : banned ? 'kamu dibanned' : 'BotBang aktif',
-                '© BotBang',
+                isBanned ? 'stikerin tidak aktif' : banned ? 'kamu dibanned' : 'stikerin aktif',
+                '© stikerin',
                 isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
                 isBanned ? '.unban' : banned ? '.owner' : '.?',
                 m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Donasi',
@@ -25,26 +25,13 @@ handler.all = async function (m, { isBlocked }) {
 
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        this.sendButton(m.chat, `╭─❏〘 BELI BOT 〙
-│➤ *1 Bulan* :      *Rp 20000*
-│➤ *Permanen* : *Rp 30000*
-│➤ *Premium* :   *Rp 20000*
-╰────❏
-╭─❏〘 PEMBAYARAN 〙
-│➤ Dana :
-│• 6285240389682
-│➤ Pulsa :
-│• 6285240389682
-╰────❏
-╭─❏ 〘 INFO 〙
-│➤ Tertarik Untuk Sewa Bot Ini?
-│➤ Ketuk Tombol Di Bawah Ya
-╰────❏
-╭─❏〘 CREATOR 〙
-│➤ ©2021 Rpg wabot-aq
-│➤ Scrip original by Nurutomo
-╰────❏〘 BOT BANG 〙
-`.trim(), '© BotBang', 'Pemilik Bot', ',owner', m)
+        this.sendButton(m.chat, `┌「 Undang Bot ke Grup 」
+├ 7 Hari / Rp 5,000
+├ 30 Hari / Rp 10,000
+└────
+
+https://github.com/ariffb25/stikerinbot
+`.trim(), '© stikerin', 'Pemilik Bot', ',owner', m)
     }
 
     // salam
@@ -55,8 +42,8 @@ handler.all = async function (m, { isBlocked }) {
     }
 
     // backup db
-    if (settings.backup) {
-        if (new Date() * 1 - settings.backupTime > 1000 * 60 * 60) {
+    if (setting.backup) {
+        if (new Date() * 1 - setting.backupTime > 1000 * 60 * 60) {
             let d = new Date
             let date = d.toLocaleDateString('id', {
                 day: 'numeric',
@@ -66,7 +53,17 @@ handler.all = async function (m, { isBlocked }) {
             await global.db.write()
             this.reply(global.owner[0] + '@s.whatsapp.net', `Database: ${date}`, null)
             this.sendFile(global.owner[0] + '@s.whatsapp.net', fs.readFileSync('./database.json'), 'database.json', '', 0, 0, { mimetype: 'application/json' })
-            set.backupTime = new Date() * 1
+            setting.backupTime = new Date() * 1
+        }
+    }
+
+    // update status
+    if (set.autoupdatestatus) {
+        if (new Date() * 1 - set.status > 1000) {
+            let _uptime = process.uptime() * 1000
+            let uptime = clockString(_uptime)
+            await this.setStatus(`Aktif selama ${uptime} | Mode: ${set.self ? 'Private' : set.group ? 'Hanya Grup' : 'Publik'} | stikerinbot oleh ariffb`).catch(_ => _)
+            set.status = new Date() * 1
         }
     }
 
