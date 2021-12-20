@@ -56,7 +56,7 @@ handler.all = async function (m, { isBlocked }) {
 
     // backup db
     if (settings.backup) {
-        if (new Date() * 1 - set.backupTime > 1000 * 60 * 60) {
+        if (new Date() * 1 - settings.backupTime > 1000 * 60 * 60) {
             let d = new Date
             let date = d.toLocaleDateString('id', {
                 day: 'numeric',
