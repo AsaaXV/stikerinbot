@@ -12,7 +12,7 @@ handler.all = async function (m, { isBlocked }) {
     try {
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
             await this.send2Button(m.chat,
-                isBanned ? 'stikerin tidak aktif' : banned ? 'kamu dibanned' : 'stikerin aktif',
+                isBanned ? 'BotBang tidak aktif' : banned ? 'kamu dibanned' : 'BotBang aktif',
                 '© BotBang',
                 isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
                 isBanned ? '.unban' : banned ? '.owner' : '.?',
@@ -55,7 +55,7 @@ handler.all = async function (m, { isBlocked }) {
     }
 
     // backup db
-    if (set.backup) {
+    if (settings.backup) {
         if (new Date() * 1 - set.backupTime > 1000 * 60 * 60) {
             let d = new Date
             let date = d.toLocaleDateString('id', {
@@ -67,16 +67,6 @@ handler.all = async function (m, { isBlocked }) {
             this.reply(global.owner[0] + '@s.whatsapp.net', `Database: ${date}`, null)
             this.sendFile(global.owner[0] + '@s.whatsapp.net', fs.readFileSync('./database.json'), 'database.json', '', 0, 0, { mimetype: 'application/json' })
             set.backupTime = new Date() * 1
-        }
-    }
-
-    // update status
-    if (set.autoupdatestatus) {
-        if (new Date() * 1 - set.status > 1000) {
-            let _uptime = process.uptime() * 1000
-            let uptime = clockString(_uptime)
-            await this.setStatus(`Aktif selama ${uptime} | Mode: ${set.self ? 'Private' : set.group ? 'Hanya Grup' : 'Publik'} | BotBang oleh Asaa`).catch(_ => _)
-            set.status = new Date() * 1
         }
     }
 
