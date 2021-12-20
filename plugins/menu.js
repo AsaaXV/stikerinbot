@@ -11,10 +11,12 @@ const defaultMenu = {
 *│• User : %name!*
 *│• Tersisa : %limit Limit*
 *│• Role : %role*
-*│• Level : %level (%exp / %maxexp)* [%xp4levelup]
+*│• Level : %level (%exp / %maxexp)* 
+*│• [%xp4levelup]*
 *╰───────────*
 *╭─❏ •❗「 Waktu 」*
-*│• Tanggal : %week %weton, %date*
+*│• Tanggal :* 
+*│• %week %weton, %date*
 *│• Tanggal Islam : %dateIslamic*
 *│• Waktu : %time*
 *╰───────────*
@@ -23,11 +25,11 @@ const defaultMenu = {
 *│• Database: %rtotalreg dari %totalreg*
 *╰───────────*
 %readmore`.trimStart(),
-  header: '*╭─❏ •❗〔 %category 〕*',
-  body: '*│•  %cmd %islimit %isPremium*',
-  footer: '*╰───────────*\n',
+  header: '╭─❏ •❗〔 %category 〕',
+  body: '│•  %cmd %islimit %isPremium',
+  footer: '╰───────────\n',
   after: `
-*%npmname@^%version*
+*BotBang@^1.0.0*
 ${'```%npmdesc```'}
 `,
 }
@@ -188,7 +190,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
-          "description": "© stikerin",
+          "description": "© BotBang",
           "buttonText": "Klik Disini",
           "listType": "SINGLE_SELECT",
           "sections": [
@@ -376,7 +378,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by ariffb', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ By Asaa', 'Pemilik Bot', `${_p}owner`, 'Donasi', `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
