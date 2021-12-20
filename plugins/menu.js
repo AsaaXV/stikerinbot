@@ -36,12 +36,13 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'rpg', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'rpg', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
     'game': 'Game',
     'xp': 'Exp & Limit',
+    'rpg': 'Game Rpg',
     'sticker': 'Stiker',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
@@ -50,7 +51,6 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'premium': 'Premium',
     'internet': 'Internet',
     'anonymous': 'Anonymous Chat',
-    'rpg': 'Game Rpg'
     'nulis': 'MagerNulis & Logo',
     'downloader': 'Downloader',
     'tools': 'Tools',
@@ -67,11 +67,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'game') tags = {
     'game': 'Game'
   }
-  if (teks == 'rpg') tags = {
-    'rpg': 'Game Rpg'
-  }
   if (teks == 'xp') tags = {
     'xp': 'Exp & Limit'
+  }
+  if (teks == 'rpg') tags = {
+    'rpg': 'Game Rpg'
   }
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
@@ -213,7 +213,11 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "title": "XP",
                   "description": "",
                   "rowId": `${_p}? xp`
-
+                  
+                }, {
+                "title": "Rpg",
+                  "description": "",
+                  "rowId": `${_p}? rpg`
                 }, {
                   "title": "Stiker",
                   "description": "",
