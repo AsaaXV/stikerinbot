@@ -27,279 +27,244 @@ module.exports = {
       m.exp = 0
       m.limit = false
       try {
-        let user = global.db.data.users[m.sender]
-		if (typeof user !== 'object') global.db.data.users[m.sender] = {}
-		if (user) {
-			if (!isNumber(user.healt)) user.healt = 0
-			if (!isNumber(user.stamina)) user.stamina = 0
-			if (!isNumber(user.level)) user.level = 0
-			if (!user.role) user.role = 'Warrior'
-			if (!isNumber(user.exp)) user.exp = 0
-			if (!isNumber(user.limit)) user.limit = 100
-			if (!isNumber(user.lastclaim)) user.lastclaim = 0
-			if (!isNumber(user.money)) user.money = 0
+		let user = global.DATABASE._data.users[m.sender]
+        if (typeof user !== 'object') global.DATABASE._data.users[m.sender] = {}
+        if (user) {
+            if (!isNumber(user.healt)) user.healt = 0
+            if (!isNumber(user.as)) user.as = 0
+            if (!isNumber(user.level)) user.level = 0
+            if (!user.role) user.role = 'Beginner'
+            if (!isNumber(user.exp)) user.exp = 0
+            if (!isNumber(user.limit)) user.limit = 100
+            if (!isNumber(user.lastclaim)) user.lastclaim = 0
+            if (!isNumber(user.lastIstigfar)) user.lastIstigfar = 0
+            if (!isNumber(user.money)) user.money = 0
+            
+            if (!isNumber(user.diamond)) user.diamond = 0
+            if (!isNumber(user.iron)) user.iron = 0
 
-			if (!isNumber(user.rumahsakit)) user.rumahsakit = 0
-			if (!isNumber(user.fortress)) user.fortress = 0
-			if (!isNumber(user.troopcamp)) user.troopcamp = 0
-			if (!isNumber(user.shield)) user.shield = false
-			if (!isNumber(user.pertanian)) user.pertanian = 0
-			if (!isNumber(user.tambang)) user.tambang = 0
+            if (!isNumber(user.common)) user.common = 0
+            if (!isNumber(user.warning)) user.warning = 0
+            if (!isNumber(user.uncommon)) user.uncommon = 0
+            if (!isNumber(user.mythic)) user.mythic = 0
+            if (!isNumber(user.legendary)) user.legendary = 0
+            if (!isNumber(user.pet)) user.pet = 0
+        
+            if (!isNumber(user.potion)) user.potion = 0
+            if (!isNumber(user.sampah)) user.sampah = 0
+            if (!isNumber(user.armor)) user.armor = 0
+            
+            if (!isNumber(user.kucing)) user.kucing = 0
+            if (!isNumber(user.kucinglastclaim)) user.kucinglastclaim = 0
+            if (!isNumber(user.kuda)) user.kuda = 0
+            if (!isNumber(user.kudalastclaim)) user.kudalastclaim = 0
+            if (!isNumber(user.rubah)) user.rubah = 0
+            if (!isNumber(user.rubahlastclaim)) user.rubahlastclaim = 0
+            if (!isNumber(user.anjing)) user.anjing = 0
+            if (!isNumber(user.anjinglastclaim)) user.anjinglastclaim = 0
+            if (!('pasangan' in user)) user.pasangan = ''
+            if (!'Banneduser' in user) user.Banneduser = false
+            if (!'BannedReason' in user) user.BannedReason = ''
+            if (!isNumber(user.warn)) user.warn = 0
 
-					//
-			if (!isNumber(user.diamond)) user.diamond = 0
-			if (!isNumber(user.iron)) user.iron = 0
+            if (!isNumber(user.afk)) user.afk = -1
+            if (!'afkReason' in user) user.afkReason = ''
+        
+            if (!isNumber(user.anakkucing)) user.anakkucing = 0
+            if (!isNumber(user.anakkuda)) user.anakkuda = 0
+            if (!isNumber(user.anakrubah)) user.anakrubah = 0
+            if (!isNumber(user.anakanjing)) user.anakanjing = 0
+            if (!isNumber(user.makananpet)) user.makananpet = 0
 
-			if (!isNumber(user.common)) user.common = 0
-			if (!isNumber(user.uncommon)) user.uncommon = 0
-			if (!isNumber(user.mythic)) user.mythic = 0
-			if (!isNumber(user.legendary)) user.legendary = 0
-			if (!isNumber(user.pet)) user.pet = 0
-			if (!isNumber(user.psepick)) user.psepick = 0
-			if (!isNumber(user.psenjata)) user.psenjata = 0
+            if (!isNumber(user.antispam)) user.antispam = 0
+            if (!isNumber(user.antispamlastclaim)) user.antispamlastclaim = 0
 
-			if (!isNumber(user.potion)) user.potion = 0
-			if (!isNumber(user.sampah)) user.sampah = 0
-			if (!isNumber(user.armor)) user.armor = 0
-			if (!isNumber(user.pancing)) user.pancing = 0
+            if (!isNumber(user.kayu)) user.kayu = 0
+            if (!isNumber(user.batu)) user.batu = 0
+            if (!isNumber(user.string)) user.string = 0
+            if (!isNumber(user.sword)) user.sword = 0
+            if (!isNumber(user.sworddurability)) user.sworddurability = 0
+            if (!isNumber(user.pickaxe)) user.pickaxe = 0
+            if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0
+            if (!isNumber(user.fishingrod)) user.fishingrod = 0
+            if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
 
-			if (!isNumber(user.kucing)) user.kucing = 0
-			if (!isNumber(user.kucinglastclaim)) user.kucinglastclaim = 0
-			if (!isNumber(user.kuda)) user.kuda = 0
-			if (!isNumber(user.kudalastclaim)) user.kudalastclaim = 0
-			if (!isNumber(user.rubah)) user.rubah = 0
-			if (!isNumber(user.rubahlastclaim)) user.rubahlastclaim = 0
-			if (!isNumber(user.anjing)) user.anjing = 0
-			if (!isNumber(user.anjinglastclaim)) user.anjinglastclaim = 0
-					//Penambah STAMINA
-			if (!isNumber(user.apel)) user.apel = 0
-			if (!isNumber(user.ayamb)) user.ayamb = 0
-			if (!isNumber(user.ayamg)) user.ayamg = 0
-			if (!isNumber(user.sapir)) user.sapir = 0
-			if (!isNumber(user.ssapi)) user.ssapi = 0
-			if (!isNumber(user.esteh)) user.esteh = 0
-			if (!isNumber(user.leleb)) user.leleb = 0
-			if (!isNumber(user.leleg)) user.leleg = 0
-
-			if (!'Banneduser' in user) user.Banneduser = false
-			if (!'BannedReason' in user) user.BannedReason = ''
-			if (!isNumber(user.warn)) user.warn = 0
-
-			if (!isNumber(user.afk)) user.afk = -1
-			if (!'afkReason' in user) user.afkReason = ''
-
-			if (!isNumber(user.pedagang)) user.pedagang = false
-			if (!isNumber(user.polisi)) user.polisi = false
-			if (!isNumber(user.dokter)) user.dokter = false
-			if (!isNumber(user.ojek)) user.ojek = false
-			if (!isNumber(user.petani)) user.petani = false
-			if (!isNumber(user.kuli)) user.kuli = false
-			if (!isNumber(user.montir)) user.montir = false
-			if (!isNumber(user.job)) user.job = false
-					//last Job
-			if (!isNumber(user.lastjb)) user.lastjb = 0
-
-			if (!isNumber(user.nila)) user.nila = 0
-			if (!isNumber(user.bawal)) user.bawal = 0
-			if (!isNumber(user.lele)) user.lele = 0
+            if (!isNumber(user.lastadventure)) user.lastadventure = 0
+            if (!isNumber(user.lastfishing)) user.lastfishing = 0
+            if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
+            if (!isNumber(user.lastduel)) user.lastduel = 0
+            if (!isNumber(user.lastmining)) user.lastmining = 0
+            if (!isNumber(user.lasthunt)) user.lasthunt = 0
+            if (!isNumber(user.lastweekly)) user.lastweekly = 0
+            if (!isNumber(user.lastmonthly)) user.lastmontly = 0
+            if (!('registered' in user)) user.registered = false
+            if (!user.registered) {
+                if (!('name' in user)) user.name = this.getName(m.sender)
+                if (!isNumber(user.age)) user.age = -1
+                if (!isNumber(user.regTime)) user.regTime = -1
+            }
+            
+//BERBURU DATABASE GAME
 			if (!isNumber(user.paus)) user.paus = 0
-			if (!isNumber(user.kepiting)) user.kepiting = 0
-			if (!isNumber(user.gurita)) user.gurita = 0
-			if (!isNumber(user.cumi)) user.cumi = 0
-			if (!isNumber(user.buntal)) user.buntal = 0
-			if (!isNumber(user.dory)) user.dory = 0
-			if (!isNumber(user.lumba)) user.lumba = 0
-			if (!isNumber(user.lobster)) user.lobster = 0
-			if (!isNumber(user.hiu)) user.hiu = 0
-			if (!isNumber(user.udang)) user.udang = 0
-			if (!isNumber(user.ikan)) user.ikan = 0
-			if (!isNumber(user.orca)) user.orca = 0
+     if (!isNumber(user.kepiting)) user.kepiting = 0
+     if (!isNumber(user.gurita)) user.gurita = 0
+     if (!isNumber(user.cumi)) user.cumi= 0
+     if (!isNumber(user.buntal)) user.buntal = 0
+     if (!isNumber(user.dory)) user.dory = 0
+     if (!isNumber(user.lumba)) user.lumba = 0
+     if (!isNumber(user.lobster)) user.lobster = 0
+     if (!isNumber(user.hiu)) user.hiu = 0
+     if (!isNumber(user.udang)) user.udang = 0
+     if (!isNumber(user.ikan)) user.ikan = 0
+     if (!isNumber(user.orca)) user.orca = 0
+        
+        if (!isNumber(user.banteng)) user.banteng = 0
+     if (!isNumber(user.harimau)) user.harimau = 0
+     if (!isNumber(user.gajah)) user.gajah = 0
+     if (!isNumber(user.kambing)) user.kambing = 0
+     if (!isNumber(user.panda)) user.panda = 0
+     if (!isNumber(user.buaya)) user.buaya = 0
+     if (!isNumber(user.kerbau)) user.kerbau = 0
+     if (!isNumber(user.sapi)) user.sapi = 0
+     if (!isNumber(user.monyet)) user.monyet = 0
+     if (!isNumber(user.babihutan)) user.babihutan = 0
+     if (!isNumber(user.babi)) user.babi = 0
+     if (!isNumber(user.ayam)) user.ayam = 0
+     
+     
+            if (!('autolevelup' in user)) user.autolevelup = true
+            
+         /*   if (!user.registered) {
+                if (!('name' in user)) user.name = this.getName(m.sender)
+                if (!isNumber(user.age)) user.age = -1
+               
+            }*/
+   /*         if (!('autolevelup' in user)) user.autolevelup = false */
+        } else global.DATABASE._data.users[m.sender] = {
+            healt: 100,
+            level: 0,
+            role: 'Beginner',
+            exp: 0,
+            limit: 10,
+            lastclaim: 0,
+            lastIstigfar: 0,
+            pasangan: '',
+                 as: 0,
+    paus: 0,
+    kepiting: 0,
+    gurita: 0,
+    cumi: 0,
+    buntal: 0,
+    dory: 0,
+    lumba: 0,
+    lobster: 0,
+    hiu: 0,
+    udang: 0,
+    ikan: 0,
+    orca: 0,
+    banteng: 0,
+    harimau: 0,
+    gajah: 0,
+    kambing: 0,
+    panda: 0,
+    buaya: 0,
+    kerbau : 0,
+    sapi: 0,
+    monyet : 0,
+    babihutan: 0,
+    babi: 0,
+    ayam: 0,
+            money: 0,
+            diamond: 0,
+            iron: 0,
+            common: 0,
+            uncommon: 0,
+            mythic: 0,
+            legendary: 0,
+            pet: 0,
+            potion: 0,
+            sampah: 0,
+            armor: 0,
+            kucing: 0,
+            kucinglastclaim: 0,
+            kuda: 0,
+            kudalastclaim: 0,
+            rubah: 0,
+            rubahlastclaim: 0,
+            anjing: 0,
+            anjinglastclaim: 0,
+            Banneduser: false,
+            BannedReason: '',
+            warn: 0,
+            afk: -1,
+            afkReason: '',
+            anakkucing: 0,
+            anakkuda: 0,
+            anakrubah: 0,
+            anakanjing: 0,
+            makananpet: 0,
+            antispam: 0,
+            antispamlastclaim: 0,
+            kayu: 0,
+            batu: 0,
+            string: 0,
+            sword: 0,
+            sworddurability: 0,
+            pickaxe: 0,
+            pickaxedurability: 0,
+            fishingrod: 0,
+            fishingroddurability: 0,
+            lastadventure: 0,
+            lastfishing: 0,
+            lastdungeon: 0,
+            lastduel: 0,
+            lastmining: 0,
+            lasthunt: 0,
+            lastweekly: 0,
+            lastmonthly: 0,
+            registered: false,
+            name: this.getName(m.sender),
+            age: -1,
+            regTime: -1,
+            warning: 0,
+            autolevelup: true,
+        }
 
-			if (!isNumber(user.banteng)) user.banteng = 0
-			if (!isNumber(user.harimau)) user.harimau = 0
-			if (!isNumber(user.gajah)) user.gajah = 0
-			if (!isNumber(user.kambing)) user.kambing = 0
-			if (!isNumber(user.panda)) user.panda = 0
-			if (!isNumber(user.buaya)) user.buaya = 0
-			if (!isNumber(user.kerbau)) user.kerbau = 0
-			if (!isNumber(user.sapi)) user.sapi = 0
-			if (!isNumber(user.monyet)) user.monyet = 0
-			if (!isNumber(user.babihutan)) user.babihutan = 0
-			if (!isNumber(user.babi)) user.babi = 0
-			if (!isNumber(user.ayam)) user.ayam = 0
-					//
-			if (!isNumber(user.lastberbru)) user.lastberbru = 0
-			if (!isNumber(user.anakkucing)) user.anakkucing = 0
-			if (!isNumber(user.anakkuda)) user.anakkuda = 0
-			if (!isNumber(user.anakrubah)) user.anakrubah = 0
-			if (!isNumber(user.anakanjing)) user.anakanjing = 0
-			if (!isNumber(user.makananpet)) user.makananpet = 0
-
-			if (!isNumber(user.antispam)) user.antispam = 0
-			if (!isNumber(user.antispamlastclaim)) user.antispamlastclaim = 0
-
-			if (!isNumber(user.kayu)) user.kayu = 0
-			if (!isNumber(user.batu)) user.batu = 0
-			if (!isNumber(user.besi)) user.besi = 0
-			if (!isNumber(user.emas)) user.emas = 0
-			if (!isNumber(user.makanan)) user.makanan = 0
-
-			if (!isNumber(user.sword)) user.sword = 0
-			if (!isNumber(user.sworddurability)) user.sworddurability = 0
-			if (!isNumber(user.pickaxe)) user.pickaxe = 0
-			if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0
-			if (!isNumber(user.fishingrod)) user.fishingrod = 0
-			if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
-					//KERAJAAN
-					//
-
-			if (!isNumber(user.lastadventure)) user.lastadventure = 0
-			if (!isNumber(user.lastfishing)) user.lastfishing = 0
-			if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
-
-			if (!isNumber(user.lastsda)) user.lastsda = 0
-			if (!isNumber(user.lastsda)) user.lastwar = 0
-
-			if (!isNumber(user.lastduel)) user.lastduel = 0
-			if (!isNumber(user.lastmining)) user.lastmining = 0
-			if (!isNumber(user.lasthunt)) user.lasthunt = 0
-			if (!isNumber(user.lastweekly)) user.lastweekly = 0
-			if (!isNumber(user.lastmonthly)) user.lastmontly = 0
-					/////if (!('kingdom' in user)) user.kingdom = false
-			if (!('registered' in user)) user.registered = false
-			if (!user.registered) {
-				if (!('name' in user)) user.name = this.getName(m.sender)
-				if (!isNumber(user.age)) user.age = -1
-				if (!isNumber(user.regTime)) user.regTime = -1
-				if (!user.role) user.role = 'Beginner'
-			}
-			if (!('autolevelup' in user)) user.autolevelup = true
-		} else global.db.data.users[m.sender] = {
-			healt: 100,
-			stamina: 100,
-			level: 0,
-			role: 'Warrior',
-					//
-			rumahsakit: 0,
-			troopcamp: 0,
-			fortress: 0,
-			makanan: 0,
-			shield: false,
-					//
-			exp: 0,
-			limit: 100,
-			lastclaim: 0,
-			money: 0,
-			diamond: 0,
-			iron: 0,
-			common: 0,
-			uncommon: 0,
-			mythic: 0,
-			legendary: 0,
-			pet: 0,
-			psepick: 0,
-			psenjata: 0,
-			potion: 0,
-			pancing: 0,
-			sampah: 0,
-			armor: 0,
-			kucing: 0,
-			kucinglastclaim: 0,
-			kuda: 0,
-			kudalastclaim: 0,
-			rubah: 0,
-			rubahlastclaim: 0,
-			anjing: 0,
-			anjinglastclaim: 0,
-			Banneduser: false,
-			BannedReason: '',
-			warn: 0,
-			afk: -1,
-			afkReason: '',
-					//
-			polisi: 0,
-			petani: 0,
-			pedagang: 0,
-			ojek: 0,
-			dokter: 0,
-			kuli: 0,
-			montir: 0,
-					//
-			lele: 0,
-			nila: 0,
-			bawal: 0,
-			paus: 0,
-			kepiting: 0,
-			gurita: 0,
-			cumi: 0,
-			buntal: 0,
-			dory: 0,
-			lumba: 0,
-			lobster: 0,
-			hiu: 0,
-			udang: 0,
-			ikan: 0,
-			orca: 0,
-			banteng: 0,
-			harimau: 0,
-			gajah: 0,
-			kambing: 0,
-			panda: 0,
-			buaya: 0,
-			kerbau: 0,
-			sapi: 0,
-			monyet: 0,
-			babihutan: 0,
-			babi: 0,
-			ayam: 0,
-
-			apel: 0,
-			ayamb: 0,
-			ayamg: 0,
-			ssapi: 0,
-			sapir: 0,
-			leleb: 0,
-			leleg: 0,
-			esteh: 0,
-
-			anakkucing: 0,
-			anakkuda: 0,
-			anakrubah: 0,
-			anakanjing: 0,
-			makananpet: 0,
-			antispam: 0,				
-			antispamlastclaim: 0,
-					//SDA
-			kayu: 0,
-			batu: 0,
-			besi: 0,
-			emas: 0,
-			makanan: 0,
-					//
-			sword: 0,
-			sworddurability: 0,
-			pickaxe: 0,
-			pickaxedurability: 0,	
-			fishingrod: 0,
-			fishingroddurability: 0,
-			lastadventure: 0,
-			lastfishing: 0,
-			lastdungeon: 0,
-			lastsda: 0,			
-			lastwar: 0,
-			lastduel: 0,
-			lastmining: 0,
-			lasthunt: 0,
-			lastjb: 0,
-			lastweekly: 0,
-			lastmonthly: 0,
-			registered: false,
-			name: this.getName(m.sender),
-			age: -1,
-			regTime: -1,
-			role: 'Beginner',
-			autolevelup: true,
-		}
+        let chat = global.db.data.chats[m.chat]
+        if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
+        if (chat) {
+          if (!('isBanned' in chat)) chat.isBanned = false
+          if (!('welcome' in chat)) chat.welcome = false
+          if (!('detect' in chat)) chat.detect = false
+          if (!('sWelcome' in chat)) chat.sWelcome = ''
+          if (!('sBye' in chat)) chat.sBye = ''
+          if (!('sPromote' in chat)) chat.sPromote = ''
+          if (!('sDemote' in chat)) chat.sDemote = ''
+          if (!('descUpdate' in chat)) chat.descUpdate = true
+          if (!('stiker' in chat)) chat.stiker = false
+          if (!('delete' in chat)) chat.delete = true
+          if (!('antiLink' in chat)) chat.antiLink = false
+          if (!isNumber(chat.expired)) chat.expired = 0
+          if (!('antiBadword' in chat)) chat.antiBadword = true
+          if (!('getmsg' in chat)) chat.getmsg = false
+          if (!('viewonce' in chat)) chat.viewonce = true
+        } else global.db.data.chats[m.chat] = {
+          isBanned: false,
+          welcome: false,
+          detect: false,
+          sWelcome: '',
+          sBye: '',
+          sPromote: '',
+          sDemote: '',
+          descUpdate: true,
+          stiker: false,
+          delete: true,
+          antiLink: false,
+          expired: 0,
+          antiBadword: true,
+          getmsg: false,
+          viewonce: true,
+        }
 
         let settings = global.db.data.settings[this.user.jid]
         if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
@@ -309,7 +274,7 @@ module.exports = {
           if (!'antispam' in settings) settings.antispam = true
           if (!'antitroli' in settings) settings.antitroli = true
           if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
-          if (!'backup' in settings) settings.backup = false
+          if (!'backup' in settings) settings.backup = true
           if (!'buggc' in settings) settings.buggc = true
           if (!isNumber(settings.backupTime)) settings.backupTime = 0
           if (!'group' in settings) settings.group = false
@@ -323,7 +288,7 @@ module.exports = {
           antispam: true,
           antitroli: true,
           autoupdatestatus: false,
-          backup: false,
+          backup: true,
           buggc: true,
           backupTime: 0,
           group: false,
@@ -372,6 +337,203 @@ module.exports = {
       let isAdmin = user.isAdmin || user.isSuperAdmin || false // Apakah user admin?
       let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Apakah kamu (bot) admin?
       let isBlocked = this.blocklist.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != this.user.jid).includes(m.sender) // Apakah user diblokir?
+      	
+      // Spesialis Anti
+      
+	//ANTILINK
+	if(enable.nolink && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+		if (!m.fromMe && m.text.match(/(https:\/\/chat.whatsapp.com)/gi)) {
+            conn.updatePresence(m.chat, Presence.composing) 
+			 conn.reply(m.chat, `*Sorry, you got kicked, for sending the group link!!!*`, m).then(() => {
+			conn.groupRemove(m.chat, [m.sender])
+			 })
+        }
+     }
+	if(enable.nolinkyt && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+		if (!m.fromMe && m.text.match(/(https:\/\/youtu.be)/gi)) {
+            conn.updatePresence(m.chat, Presence.composing) 
+			 conn.reply(m.chat, `*Sorry, you got kicked, for sending the youtube link!!!*`, m).then(() => {
+			conn.groupRemove(m.chat, [m.sender])
+			 })
+        }
+     }
+	if(enable.nolinktiktok && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+		if (!m.fromMe && m.text.match(/(https:\/\/vt.tiktok.com)/gi)) {
+            conn.updatePresence(m.chat, Presence.composing) 
+			 conn.reply(m.chat, `*Sorry, you got kicked, for sending the tiktok link!!!*`, m).then(() => {
+			conn.groupRemove(m.chat, [m.sender])
+			 })
+        }
+     }
+     if(enable.nohoax && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+         if(m.text.match(/(kirim ke 4 grup|kirim ke 5 grup|maka namamu akan muncul|njir nama gw muncul|jika sudah kirim ke grupmu|lalu kirim ke grupmu|maka otomatis akan muncul|jika sudah cari gambar|namamu akan muncul)/gi)) {
+         conn.updatePresence(m.chat, Presence.composing)
+         conn.reply(m.chat, `Sorry karna kamu telah ngirim pesan gak guna gitu kamu otomatis di kick!!!`, m).then(() => {
+         conn.groupRemove(m.chat, [m.sender])
+         })
+       }
+     }
+     if(enable.nokuotafree && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+       if(m.text.match(/(kuotagratis.on|kuotabelajar.on|Program kuota belajar|=75G|Bantuan pulsa|kolah.on|kuotagratis.co|v=75GB|kuotafree.on|lajar.on|kuotakemendikbud.)/gi)) {
+       conn.updatePresence(m.chat, Presence.composing)
+       conn.reply(m.chat, `*_Yang share kuota gratis jangan di temenin, kick aja langsung!!!_*`, m).then(() => {
+       conn.groupRemove(m.chat, [m.sender])
+        })
+      }
+    }
+     if(enable.nowan && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+       if(m.text.match(/(Wan|wanz)/gi)) {
+       conn.updatePresence(m.chat, Presence.composing)
+       conn.reply(m.chat, `*_Yang nge-Fans sama wan jangan di temenin, kick aja langsung!!!_*`, m).then(() => {
+       conn.groupRemove(m.chat, [m.sender])
+        })
+      }
+    }
+    
+	if(enable.noemotebatu && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+	if (!m.fromMe && m.text.match(/(emote batu|馃椏)/gi)) {
+		conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Hamdeh Sorry Kawand!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ ANTIEMOTEBATU DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan menggunakan emote batu atau menggunakan kalimat (emote batu) sebanyak 10x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.maaf* untuk menghapus 1 warning\n\n 鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+		if(enable.nobucin && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+	if (!m.fromMe && m.text.match(/(beb|Beb|yank|yang|sayang|syg|syang|beby|baby|Yang|Sayang|Syg|Beby|by|By|Baby|馃槏|馃槝|馃グ|馃槜|馃槞|馃槡|馃樆)/gi)) {
+		conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Kabanyakan bucin, kick aja lah!!!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ ANTIBUCIN DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan Bucin karna admin iri, kalo mau bucin chat aja, kalo ngebucin sebanyak 10x kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.maaf* untuk menghapus 1 warning\n\n 鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+	if (!m.fromMe && m.text.match(/(6282164659362)/gi)) {
+stiker = await sticker(false, "https://telegra.ph/file/dfee29786ff4c524443c2.png", "ANDY-BOTZ", "Ngetag lagi saya benet")
+        await conn.sendMessage(m.chat, stiker, MessageType.sticker, { sendEphemeral: true, quoted: m })
+	}
+	
+	if(enable.nojakarta && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+	if (!m.fromMe && m.text.match(/(Lu|lu|gw|Gw|Gue|Gua|gue|gua)/gi)) {
+		conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Hamdeh Sorry Kawand!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ ANTI-JAKARTA DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan menggunakan bahasa Jakarta atau menggunakan kalimat lu/gw sebanyak 10x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.maaf* untuk menghapus 1 warning\n\n鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+	if(enable.nosad && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+	if (!m.fromMe && m.text.match(/(馃檪|馃槶|馃檭)/gi)) {
+		conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 4) {
+				conn.reply(m.chat, `*Hamdeh Sorry Kawand!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ ANTI-SAD DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 5 ]*\n\n*Jangan kirim emoji sad sebanyak 5x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.maaf* untuk menghapus 1 warning\n\n鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+		if(enable.nobadword && !m.fromMe && m.isGroup && !isAdmin && !isOwner && isBotAdmin) {
+	if (!m.fromMe && m.text.match(/(asadebangsat|Dakjal|anak setan|ngntd|ngentot|jancuk|kuntul|babi|kampang|kenthu|tempik|kimak|patek|kondom|bugil|seks|sex|sexy|jancok|jembut|bokep|xnxx|xxx|xvideos|xvid|jilboob|seksi|Anjing|Babi|Kunyuk|Bajingan|Bangsat|Kampret|Kontol|Memek|Ngentot|Pentil|Perek|Pepek|Pecun|Bencong|Banci|Maho|Sinting|Lonte|Hencet|Taptei|Kampang|Keparat|Bejad|Gembel|Brengsek|Taek|Anjrit|Fuck|Tetek|Ngulum|Anj|ajg|asu|aswJembut|Totong|Kolop|Pukimak|Bodat|Heang|Jancuk|Burit|Titit|Nenen|Bejat|Silit|komtol|Komtol|Sempak|Fucking|Asshole|Bitch|Penis|Vagina|Klitoris|Kelentit|Borjong|Dancuk|Pantek|kondom|Teho|Bejat|Pantat|Bagudung|Babami|Kanciang|Bungul|Idiot|Kimak|Henceut|Kacuk|pukimak|Pussy|ngewe|Dick|Damn|Assu|tempek|celeng|shit|jingan|ngentot anjing ngewe|Dont use unlisted command,BAKA!breast|kontol|ngentod|colmek|alat vital|bangkinang|tits|tetek|coli|ngocok peli|ANJING!!!|kntl|ngtd|anying|amjin|sikontol|bang bros|ngocok|toket|A n j i n g|Tahi|anjass|biadap|bbii|biadab|Tomlol|dongo|dungu|anjk|bcot|BURUNG KECIL JAN SOK KERAS:V|nude|p3n1s|p3nis)/gi)) {
+		conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender]. warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Over badword!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ ANTITOXIC DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan berkata kasar atau menggunakan kalimat sampah sebanyak 10x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.astagfirullah* untuk menghapus 1 warning\n\n鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+
+	if(enable.novirtex && !m.fromMe && m.isGroup && !isOwner && isBotAdmin) {
+            if (!m.fromMe && m.text.match(/(唰Л唰瓅喙掄箳喙抾貗.釀�.嗑�.釃�.嗑檤喙栛［測喙栛［淔喙栛［渞喙東喙戉箲喙憒唰Л唰Л唰Л唰Л|喙戉箲喙戉箲喙戉箲喙戉箲|喔溹复喔斷父喔椸箟喙堗箑喔多覆喔囙阜喔溹复喔斷父喔椸箟喙堗箑喔多覆喔囙阜|喙掄箳喙掄箳喙掄箳喙掄箳|喔溹复喔斷父喔椸箟喙堗箑喔多覆喔囙阜喔溹复喔斷父喔椸箟喙堗箑喔多覆喔囙阜)/gi)) {
+            	conn.updatePresence(m.chat, Presence.composing) 
+            	conn.reply(m.chat, `*Jangan kirim pirtek asu!!!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender]) 	
+			})
+        }
+	}
+	
+		
+	if(enable.nohentai && !m.fromMe && m.isGroup && isBotAdmin) {
+            if (m.text.match(/(https:\/\/nhentai.net\/\/g|nhentai.net\/\/g)/gi)) {
+            	conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Bad request!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ HENTAI DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan Kirim kode hentai sebanyak 10x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\nGunakan command *.maaf* untuk menghapus 1 warning\n\n鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+	if(enable.nobomchat && !m.fromMe && m.isGroup && isBotAdmin) {
+            if (m.text.match(/(Selamat datang di papan klip, kapan pun Anda menyalin akan disimpan di sini|Selamat datang di papan klip, kapan pun Anda menyalin akan disimpan di siniSelamat datang di papan klip, kapan pun Anda menyalin akan disimpan di siniGeser klip untuk menghapusnya)/gi)) {
+            	conn.updatePresence(m.chat, Presence.composing) 
+		var cBad = global.DATABASE.data.users[m.sender].warning += 1
+		var warning = global.DATABASE.data.users[m.sender].warning
+			if(warning > 9) {
+				conn.reply(m.chat, `*Over Bomchat!*`, m).then(() => {
+				conn.groupRemove(m.chat, [m.sender])
+				global.DATABASE.data.users[m.sender].warning = 0
+           	 })
+			} else {
+				conn.reply(m.chat, `*夂€ BOMCHAT DETECTOR 夂€*\n\n*Kamu mendapat peringatan : [ ${warning} / 10 ]*\n\n*Jangan Bomchat sebanyak 10x atau kamu akan dikeluarkan dari grup secara otomatis.*\n\n鈻屸攤鈻堚晳鈻屸晳鈻屸晳鈺戔枌鈺戔枌鈺戔枅鈹傗枌鈻屸攤鈻堚晳`, m)
+			}
+		}
+	}
+	
+/*if (!m.fromMe && m.text.match(/(terimakasih|makasih|tq|thanks|tengs|tengkyu|mks|mksih)/gi)) {
+	    conn.updatePresence(m.chat, Presence.recording)
+	    conn.sendFile(m.chat, 'src/masama.opus', 'tts.opus', null, m, true)
+	}*/
+	
+/*if (!m.fromMe && m.text.match(/(desah|mendesah|yamete)/gi)) {
+	    conn.updatePresence(m.chat, Presence.recording)
+	    conn.sendFile(m.chat, 'src/desah.opus', 'tts.opus', null, m, true)
+	}*/
+	
+/*if (!m.fromMe && m.text.match(/(asalamualaikum|assalamu'alaikum|assalamualaikum)/gi)) {
+	    conn.updatePresence(m.chat, Presence.recording)
+	    conn.sendFile(m.chat, 'src/wall.opus', 'tts.opus', null, m, true)
+	}*/
+	
+	
+	// done
       for (let name in global.plugins) {
         let plugin = global.plugins[name]
         if (!plugin) continue
