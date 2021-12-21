@@ -1,28 +1,27 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
   await m.reply(global.wait)
-  let res = await fetch(global.API('xteam','/religi/doaharian', {}, 'APIKEY'))
+  let res = await fetch(global.API('xteam','/religi/wirid', {}, 'APIKEY'))
   let json = await res.json()
   if (res.status != 200) throw json
   if (json.result.error) throw json.result.message
   let {
-    title,
-    latin,
+    times,
+    id,
     arabic,
-    translation
+    tnc
   } = json.result
   let caption = `
-*「 Doa Harian 」*
-${title}
-${arabic}
-${latin}
-Artinya:
-_"${translation}"_
+*「 Wirid 」*
+No. ${id}
+${arabic} ${times}x
+${tnc}
 `.trim()
   await m.reply(caption)
 }
-handler.help = ['doaharian']
+handler.help = ['wirid']
 handler.tags = ['quran']
-handler.command = /^(doaharian)$/i
+handler.command = /^(wirid)$/i
+
 
 module.exports = handler

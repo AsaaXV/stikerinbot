@@ -36,7 +36,7 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'rpg', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'rpg', 'stiker', 'expression', 'kerangajaib', 'quotes', 'admin', 'grup', 'videomaker', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'textpro', 'database', 'spammer', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
@@ -44,18 +44,21 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'xp': 'Exp & Limit',
     'rpg': 'Game Rpg',
     'sticker': 'Stiker',
+    'expression': 'Expression',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
     'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
     'group': 'Grup',
-    'premium': 'Premium',
+    'videomaker': 'Videomaker',
     'internet': 'Internet',
     'anonymous': 'Anonymous Chat',
     'nulis': 'MagerNulis & Logo',
     'downloader': 'Downloader',
     'tools': 'Tools',
     'fun': 'Fun',
+    'textpro': 'Textpro',
     'database': 'Database',
+    'spammer': 'Spammer',
     'vote': 'Voting',
     'absen': 'Absen',
     'quran': 'Al Qur\'an',
@@ -76,6 +79,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
   }
+  if (teks == 'expression') tags = {
+    'expression': 'Expression'
+  }
   if (teks == 'kerangajaib') tags = {
     'kerang': 'Kerang Ajaib'
   }
@@ -88,8 +94,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'grup') tags = {
     'group': 'Grup'
   }
-  if (teks == 'premium') tags = {
-    'premium': 'Premium'
+  if (teks == 'videomaker') tags = {
+    'videomaker': 'Videomaker'
   }
   if (teks == 'internet') tags = {
     'internet': 'Internet'
@@ -109,8 +115,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'fun') tags = {
     'fun': 'Fun'
   }
+  if (teks == 'textpro') tags = {
+    'textpro': 'Textpro'
+  }
   if (teks == 'database') tags = {
     'database': 'Database'
+  }
+  if (teks == 'spammer') tags = {
+    'spammer': 'Spammer'
   }
   if (teks == 'vote') tags = {
     'vote': 'Voting',
@@ -223,6 +235,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "",
                   "rowId": `${_p}? stiker`
                 }, {
+                  "title": "Expression",
+                  "description": "",
+                  "rowId": `${_p}? expression`
+                }, {
                   "title": "Kerang Ajaib",
                   "description": "",
                   "rowId": `${_p}? kerangajaib`
@@ -239,9 +255,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "",
                   "rowId": `${_p}? grup`
                 }, {
-                  "title": "Premium",
+                  "title": "Videomaker",
                   "description": "",
-                  "rowId": `${_p}? premium`
+                  "rowId": `${_p}? videomaker`
                 }, {
                   "title": "Internet",
                   "description": "",
@@ -270,6 +286,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "title": "Database",
                   "description": "",
                   "rowId": `${_p}? database`
+                }, {
+                  "title": "Spammer",
+                  "description": "",
+                  "rowId": `${_p}? spammer`
+                }, {
+                  "title": "Textpro",
+                  "description": "",
+                  "rowId": `${_p}? textpro`
                 }, {
                   "title": "Vote & Absen",
                   "description": "",

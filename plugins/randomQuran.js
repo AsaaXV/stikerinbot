@@ -15,7 +15,7 @@ KET SURAT	: ${res.data.result.keterangan}
 	})
 }
 handler.help = ['rquran']
-handler.tags = ['islam']
+handler.tags = ['quran']
 handler.command = /^(rquran)/i
 handler.owner = false
 handler.mods = false

@@ -10,7 +10,7 @@ let handler = async(m, { conn, text }) => {
 	})
 }
 handler.help = ['kisah|kisah nabi|nabi'].map(v => v + ' <nama nabi>')
-handler.tags = ['islam']
+handler.tags = ['quran']
 handler.command = /^(kisah|kisah nabi|nabi)$/i
 handler.owner = false
 handler.mods = false
