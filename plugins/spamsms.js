@@ -14,7 +14,7 @@ handler.tags = ['spammer']
 handler.command = /^(spamsms)$/i
 handler.owner = false
 handler.mods = false
-handler.premium = false
+handler.premium = true
 handler.group = false
 handler.private = false
 
