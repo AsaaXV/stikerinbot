@@ -311,14 +311,14 @@ module.exports = {
           if (!('sBye' in chat)) chat.sBye = ''
           if (!('sPromote' in chat)) chat.sPromote = ''
           if (!('sDemote' in chat)) chat.sDemote = ''
-          if (!('descUpdate' in chat)) chat.descUpdate = true
+          if (!('descUpdate' in chat)) chat.descUpdate = false
           if (!('stiker' in chat)) chat.stiker = false
           if (!('delete' in chat)) chat.delete = true
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!isNumber(chat.expired)) chat.expired = 0
           if (!('antiBadword' in chat)) chat.antiBadword = true
           if (!('getmsg' in chat)) chat.getmsg = false
-          if (!('viewonce' in chat)) chat.viewonce = true
+          if (!('viewonce' in chat)) chat.viewonce = false
         } else global.db.data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -327,20 +327,20 @@ module.exports = {
           sBye: '',
           sPromote: '',
           sDemote: '',
-          descUpdate: true,
+          descUpdate: false,
           stiker: false,
           delete: true,
           antiLink: false,
           expired: 0,
           antiBadword: true,
           getmsg: false,
-          viewonce: true,
+          viewonce: false,
         }
 
         let settings = global.db.data.settings[this.user.jid]
         if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
         if (settings) {
-          if (!'anon' in settings) settings.anon = true
+          if (!'anon' in settings) settings.anon = false
           if (!'anticall' in settings) settings.anticall = true
           if (!'antispam' in settings) settings.antispam = true
           if (!'antitroli' in settings) settings.antitroli = true
@@ -354,7 +354,7 @@ module.exports = {
           if (!'restrict' in settings) settings.restrict = false
           if (!isNumber(settings.status)) settings.status = 0
         } else global.db.data.settings[this.user.jid] = {
-          anon: true,
+          anon: false,
           anticall: true,
           antispam: true,
           antitroli: true,
