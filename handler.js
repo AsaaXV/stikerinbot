@@ -168,10 +168,10 @@ module.exports = {
 					/////if (!('kingdom' in user)) user.kingdom = false
 			if (!('registered' in user)) user.registered = false
 			if (!user.registered) {
-				if (!('name' in user)) user.name = this.getName(m.sender)
-				if (!isNumber(user.age)) user.age = -1
-				if (!isNumber(user.regTime)) user.regTime = -1
-				if (!user.role) user.role = 'Beginner'
+			if (!('name' in user)) user.name = this.getName(m.sender)
+			if (!isNumber(user.age)) user.age = -1
+			if (!isNumber(user.regTime)) user.regTime = -1
+			if (!user.role) user.role = 'Beginner'
 			}
 			if (!('autolevelup' in user)) user.autolevelup = true
 		} else global.db.data.users[m.sender] = {
