@@ -173,7 +173,7 @@ module.exports = {
 			if (!isNumber(user.regTime)) user.regTime = -1
 			if (!user.role) user.role = 'Beginner'
 			}
-			if (!('autolevelup' in user)) user.autolevelup = false
+			if (!('autolevelup' in user)) user.autolevelup = true
 		} else global.db.data.users[m.sender] = {
 			healt: 100,
 			stamina: 100,
