@@ -1,30 +1,26 @@
 const fetch = require('node-fetch')
 let timeout = 120000
 let poin = 500
-
 let handler = async (m, { conn, usedPrefix }) => {
     conn.asahotak = conn.asahotak ? conn.asahotak : {}
     let id = m.chat
     if (id in conn.asahotak) {
-        conn.reply(m.chat, 'Masih ada Asah Otak belum terjawab di chat ini', conn.asahotak[id][0])
+        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.asahotak[id][0])
         throw false
     }
-    let res = await fetch(global.API('mel', '/game/caklontong', {}, 'apikey'))
-    if (!res.ok) throw await `${res.status} ${res.statusText}`
-    let json = await res.json()
-    if (!json.status) throw json
+    let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')).json()
+    let json = src[Math.floor(Math.random() * src.length)]
     let caption = `
-${json.result.soal}
-
+${json.soal}
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}ao untuk bantuan
 Bonus: ${poin} XP
     `.trim()
     conn.asahotak[id] = [
-        await conn.sendButton(m.chat, caption, '© BotBang', 'Bantuan', '.ao', m),
+        await conn.sendButton(m.chat, caption, 'BotBang', 'Bantuan', '.ao', m),
         json, poin,
         setTimeout(async () => {
-            if (conn.asahotak[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, '© BotBang', 'Asah Otak', '.asahotak', conn.asahotak[id][0])
+            if (conn.asahotak[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, 'BotBang', 'Asah Otak', '.asahotak', conn.asahotak[id][0])
             delete conn.asahotak[id]
         }, timeout)
     ]

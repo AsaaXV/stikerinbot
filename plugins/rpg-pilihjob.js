@@ -106,7 +106,7 @@ default:
              }
 
 handler.help = ['pilihjob','selectjob']
-handler.tags = ['pekerjaan']
+handler.tags = ['rpg']
 handler.command = /^(pilihjob|selectjob)$/i 
 
 module.exports = handler
