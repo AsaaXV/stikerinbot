@@ -301,6 +301,42 @@ module.exports = {
 			autolevelup: true,
 		}
 
+        let chat = global.db.data.chats[m.chat]
+        if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
+        if (chat) {
+          if (!('isBanned' in chat)) chat.isBanned = false
+          if (!('welcome' in chat)) chat.welcome = false
+          if (!('detect' in chat)) chat.detect = false
+          if (!('sWelcome' in chat)) chat.sWelcome = ''
+          if (!('sBye' in chat)) chat.sBye = ''
+          if (!('sPromote' in chat)) chat.sPromote = ''
+          if (!('sDemote' in chat)) chat.sDemote = ''
+          if (!('descUpdate' in chat)) chat.descUpdate = true
+          if (!('stiker' in chat)) chat.stiker = false
+          if (!('delete' in chat)) chat.delete = true
+          if (!('antiLink' in chat)) chat.antiLink = false
+          if (!isNumber(chat.expired)) chat.expired = 0
+          if (!('antiBadword' in chat)) chat.antiBadword = true
+          if (!('getmsg' in chat)) chat.getmsg = false
+          if (!('viewonce' in chat)) chat.viewonce = true
+        } else global.db.data.chats[m.chat] = {
+          isBanned: false,
+          welcome: false,
+          detect: false,
+          sWelcome: '',
+          sBye: '',
+          sPromote: '',
+          sDemote: '',
+          descUpdate: true,
+          stiker: false,
+          delete: true,
+          antiLink: false,
+          expired: 0,
+          antiBadword: true,
+          getmsg: false,
+          viewonce: true,
+        }
+
         let settings = global.db.data.settings[this.user.jid]
         if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
         if (settings) {
