@@ -173,7 +173,7 @@ module.exports = {
 			if (!isNumber(user.regTime)) user.regTime = -1
 			if (!user.role) user.role = 'Beginner'
 			}
-			if (!('autolevelup' in user)) user.autolevelup = true
+			if (!('autolevelup' in user)) user.autolevelup = false
 		} else global.db.data.users[m.sender] = {
 			healt: 100,
 			stamina: 100,
@@ -298,7 +298,7 @@ module.exports = {
 			age: -1,
 			regTime: -1,
 			role: 'Beginner',
-			autolevelup: true,
+			autolevelup: false,
 		}
 
         let chat = global.db.data.chats[m.chat]
