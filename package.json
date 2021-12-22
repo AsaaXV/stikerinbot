@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/ariffb25/stikerinbot",
   "dependencies": {
-    "@adiwajshing/baileys": "github:melcanz/andybaileys",
+    "@adiwajshing/baileys": "^3.5.3",
     "awesome-phonenumber": "^2.54.0",
     "axios": "^0.21.1",
     "acrcloud": "^1.4.0",
