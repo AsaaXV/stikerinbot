@@ -17,8 +17,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
           'image': imgbase64,
       })
       wsf = new WSF.Sticker(data.data.image, {
-        pack: global.packname1,
-        author: global.author1,
+        pack: global.packname,
+        author: global.author,
         crop: false,
       })
     } else if (/image/.test(mime)) {
@@ -30,8 +30,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
           'image': imgbase64,
       })
       wsf = new WSF.Sticker(data.data.image, {
-        pack: global.packname1,
-        author: global.author1,
+        pack: global.packname,
+        author: global.author,
         crop: false,
       })
     } else if (args[0]) {
@@ -58,7 +58,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['stickernobg', 'stickernobg <url>']
 handler.tags = ['sticker']
-handler.command = /^s(tic?ker)?nobg)$/i
+handler.command = /^s(tic?ker)?(wm)?nobg$/i
 
 module.exports = handler
 
