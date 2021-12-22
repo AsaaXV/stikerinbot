@@ -34,9 +34,9 @@ let handler = async (m, { conn, text }) => {
     else throw 'Balas stikernya!'
   }
 }
-handler.help = ['wm <packname>|<author>', 'swm <packname>|<author>']
+handler.help = ['wm <packname>|<author>']
 handler.tags = ['sticker']
-handler.command = /^s(wm)$/i
+handler.command = /^wm$/i
 
 handler.limit = true
 
