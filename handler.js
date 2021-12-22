@@ -353,7 +353,7 @@ module.exports = {
           if (!'nsfw' in settings) settings.nsfw = true
           if (!'restrict' in settings) settings.restrict = false
           if (!isNumber(settings.status)) settings.status = 0
-        } else global.db.data.settings = {
+        } else global.db.data.settings[this.user.jid] = {
           anon: false,
           anticall: true,
           antispam: true,
