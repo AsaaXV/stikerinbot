@@ -58,7 +58,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['stickernobg', 'stickernobg <url>']
 handler.tags = ['sticker']
-handler.command = /^s(tic?ker)?nobg$/i
+handler.command = /^s(tic?ker)?nobg)$/i
 
 module.exports = handler
 
