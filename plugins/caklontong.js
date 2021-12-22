@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.caklontong[id][0])
         throw false
     }
-    let res = await fetch(global.API('mel', '/game/caklontong', {}, 'apikey'))
+    let res = await fetch(global.API('xteam', '/game/caklontong', {}, 'apikey'))
     if (!res.ok) throw await `${res.status} ${res.statusText}`
     let json = await res.json()
     if (!json.status) throw json
