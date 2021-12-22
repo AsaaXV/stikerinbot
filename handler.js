@@ -337,8 +337,8 @@ module.exports = {
           viewonce: false,
         }
 
-        let settings = global.db.data.settings[this.user.jid]
-        if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
+        let settings = global.db.data.settings
+        if (typeof settings !== 'object') global.db.data.settings = {}
         if (settings) {
           if (!'anon' in settings) settings.anon = false
           if (!'anticall' in settings) settings.anticall = true
