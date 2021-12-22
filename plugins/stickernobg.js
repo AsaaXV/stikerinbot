@@ -17,8 +17,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
           'image': imgbase64,
       })
       wsf = new WSF.Sticker(data.data.image, {
-        pack: global.packname,
-        author: global.author,
+        pack: global.packname1,
+        author: global.author1,
         crop: false,
       })
     } else if (/image/.test(mime)) {
@@ -30,8 +30,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
           'image': imgbase64,
       })
       wsf = new WSF.Sticker(data.data.image, {
-        pack: global.packname,
-        author: global.author,
+        pack: global.packname1,
+        author: global.author1,
         crop: false,
       })
     } else if (args[0]) {
