@@ -1,4 +1,5 @@
 let fs = require('fs')
+let fetch = require('node-fetch')
 let handler = m => m
 
 handler.all = async function (m, { isBlocked }) {
@@ -7,14 +8,25 @@ handler.all = async function (m, { isBlocked }) {
 
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        this.reply(m.chat, `┌ *「 Invite Grup 」*
-│ ✅Join 1 grup
-│ 
-│ 7 Hari / Rp 5000
-│ 30 Hari / Rp 25000
-└────
-Hubungi @${global.owner[0]}
-`.trim(), m, { contextIfo: { mentionedJid: [global.owner[0] + '@s.whatsapp.net'] } })
+        this.send2ButtonLoc(m.chat, await (await fetch(fla + 'sewa bot')).buffer(), `╭─❏〘 BELI BOT 〙
+│➤ *1 Bulan* :      *Rp 20000*
+│➤ *Permanen* : *Rp 30000*
+│➤ *Premium* :   *Rp 20000*
+╰────❏
+╭─❏〘 PEMBAYARAN 〙
+│➤ Dana :
+│• 6285240389682
+│➤ Pulsa :
+│• 6285240389682
+╰────❏
+╭─❏ 〘 INFO 〙
+│➤ Tertarik Untuk Sewa Bot Ini?
+│➤ Ketuk Tombol Di Bawah Ya
+╰────❏
+╭─❏〘 CREATOR 〙
+│➤ ©2021 Rpg BotBang
+│➤ Scrip original by Nurutomo
+╰────❏〘 BOT BANG 〙`.trim(), '© BotBang', 'Owner', '#owner', 'Menu', '#menu', m)
     }
 
     // salam
