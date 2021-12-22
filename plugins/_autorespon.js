@@ -33,7 +33,7 @@ Hubungi @${global.owner[0]}
                 month: 'long',
                 year: 'numeric'
             })
-            await global.DATABASE.save()
+            await global.db.write()
             this.reply(global.owner[0] + '@s.whatsapp.net', `Database: ${date}`, null)
             this.sendFile(global.owner[0] + '@s.whatsapp.net', fs.readFileSync('./database.json'), 'database.json', '', false, false, { mimetype: 'application/json' })
             setting.backupDB = new Date() * 1
