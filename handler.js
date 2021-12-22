@@ -314,7 +314,7 @@ module.exports = {
           if (!('descUpdate' in chat)) chat.descUpdate = false
           if (!('stiker' in chat)) chat.stiker = false
           if (!('delete' in chat)) chat.delete = false
-          if (!('antiLink' in chat)) chat.antiLink = false
+          if (!('antiLink' in chat)) chat.antiLink = true
           if (!isNumber(chat.expired)) chat.expired = 0
           if (!('antiBadword' in chat)) chat.antiBadword = true
           if (!('getmsg' in chat)) chat.getmsg = false
@@ -329,7 +329,7 @@ module.exports = {
           sDemote: '',
           descUpdate: false,
           stiker: false,
-          delete: false,
+          delete: true,
           antiLink: false,
           expired: 0,
           antiBadword: true,
