@@ -9,12 +9,12 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.susunkata[id][0])
         throw false
     }
-    let res = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
-    if (!res.ok) throw eror
-    let data = await res.json()
-    let json = data[Math.floor(Math.random() * data.length)]
+    let res = await fetch(global.API('xteam', '/game/susunkata', {}, 'apikey'))
+    if (!res.ok) throw await `${res.status} ${res.statusText}`
+    let json = await res.json()
+    if (!json.status) throw json
     let caption = `
-${json.soal}
+${json.result.soal}
 
 Tipe: ${json.tipe}
 
@@ -23,10 +23,10 @@ Ketik ${usedPrefix}suka untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.susunkata[id] = [
-        await conn.sendButton(m.chat, caption, '© Botbang', 'Bantuan', '.suka'),
+        await conn.sendButton(m.chat, caption, '© BotBang', 'Bantuan', '.suka'),
         json, poin,
         setTimeout(async () => {
-            if (conn.susunkata[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, '© BotBang', 'Susun Kata', '.susunkata')
+            if (conn.susunkata[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, '© BotBang', 'Susun Kata', '.susunkata')
             delete conn.susunkata[id]
         }, timeout)
     ]
