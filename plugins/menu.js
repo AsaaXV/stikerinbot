@@ -124,7 +124,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'spammer') tags = {
     'spammer': 'Spammer'
   }
-  if (teks == 'vote') tags = {
+  if (teks == 'memek') tags = {
     'vote': 'Voting',
     'absen': 'Absen'
   }
@@ -297,7 +297,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                 }, {
                   "title": "Vote & Absen",
                   "description": "",
-                  "rowId": `${_p}? vote`
+                  "rowId": `${_p}? memek`
                 }, {
                   "title": "Al-Qur\'an",
                   "description": "",
@@ -416,9 +416,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     throw e
   }
 }
-handler.help = ['menu', 'help', '?']
+handler.help = ['menu', 'help']
 handler.tags = ['main']
-handler.command = /^(menu|help|\?)$/i
+handler.command = /^(menu|help)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
