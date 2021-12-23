@@ -1,20 +1,19 @@
 let handler = m => m
 
-let linkRegex = /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
-handler.before = async function (m, { isAdmin, isBotAdmin }) {
-  if (m.isBaileys && m.fromMe) return true
-  let chat = global.db.data.chats[m.chat]
-  let isGroupLink = linkRegex.exec(m.text)
+let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 
-  if (chat.antiLink && isGroupLink && !isAdmin && !m.isBaileys && m.isGroup) {
-    let thisGroup = `https://chat.whatsapp.com/${await conn.groupInviteCode(m.chat)}`
-    if (m.text.includes(thisGroup)) throw false // jika link grup itu sendiri gak dikick
-    await conn.sendButton(m.chat, `*Link Grup Terdeteksi!*${isBotAdmin ? '' : '\n\nbukan admin jadi gabisa kick t_t'}\n\nKetik *.off antilink* untuk mematikan fitur ini${opts['restrict'] ? '' : '\nketik *#on restrict* supaya bisa kick'}`, '© BotBang', 'Matikan Antilink', ',0 antilink', m)
-    //if (global.opts['restrict']) {
-      if (isBotAdmin) this.groupRemove(m.chat, [m.sender])
-//    }
+handler.before = function (m, { user, isAdmin, isBotAdmin }) {
+
+  if (m.isBaileys && m.fromMe) throw false
+  let chat = global.db.data.chats[m.chat]
+  let name = this.getName(m.sender)
+  let link = linkRegex.exec(m.text)
+
+  if (chat.antiLink && link && !isAdmin && !m.isBaileys && m.isGroup && !m.fromMe) {
+ m.reply(`*「 ANTI LINK 」*\n\nTerdeteksi *${name}* kamu telah mengirim link group!\n\nMaaf Kamu akan dikick dari grup ini bangsat!`)
+   this.groupRemove(m.chat, [m.sender])
   }
-  return true
 }
+handler.group = true
 
 module.exports = handler
