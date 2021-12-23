@@ -36,6 +36,6 @@ let handler = async (m, { conn, text }) => {
 
 handler.help = ['wm <packname>|<author>']
 handler.tags = ['sticker']
-handler.command = /^s?(wm)$/i
+handler.command = /^wm$/i
 
 module.exports = handler

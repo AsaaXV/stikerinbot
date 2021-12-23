@@ -4,10 +4,10 @@ const { sticker } = require('../lib/sticker')
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
-    if (!args[0]) throw `*Perintah ini untuk mengambil stiker dari Line*\n\nContoh penggunaan:\n${usedPrefix + command} https://store.line.me/stickershop/product/8149770`
+try {    if (!args[0]) throw `*Perintah ini untuk mengambil stiker dari Line*\n\nContoh penggunaan:\n${usedPrefix + command} https://store.line.me/stickershop/product/8149770`
     if (!args[0].match(/(https:\/\/store.line.me\/stickershop\/product\/.*)/gi)) throw `*Perintah ini untuk mengambil stiker dari Line*\n\nContoh penggunaan:\n${usedPrefix + command} https://store.line.me/stickershop/product/8149770`
 
-    let res = await fetch(global.API('xteam', '/sticker/stickerline', { url: args[0] }, 'APIKEY'))
+    let res = await fetch('https://api.xteam.xyz/sticker/stickerline?url=' + args[0] + '&APIKEY=miminetbot')
     if (res.status !== 200) throw await res.text()
     let json = await res.json()
     if (!json.status) throw json
@@ -22,7 +22,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m })
         await delay(1500)
     }
-
+} catch (e) {
+  m.reply (`apikey invalid atau server down`)} 
 }
 handler.help = ['stikerline <url>']
 handler.tags = ['sticker']

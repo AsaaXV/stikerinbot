@@ -4,9 +4,9 @@ const { sticker } = require('../lib/sticker')
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-    if (!text) throw `*Perintah ini untuk mengambil stiker dari Stickerly berdasarkan pencarian*\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
+try {    if (!text) throw `*Perintah ini untuk mengambil stiker dari Stickerly berdasarkan pencarian*\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
 
-    let res = await fetch(global.API('xteam', '/sticker/stickerly', { q: text }, 'APIKEY'))
+    let res = await fetch('https://api.xteam.xyz/sticker/stickerly?q=' + text + '&APIKEY=miminetbot')
     if (res.status !== 200) throw await res.text()
     let json = await res.json()
     if (!json.status) throw json
@@ -19,7 +19,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m })
         await delay(1500)
     }
-
+} catch (e) {
+  m.reply (`apikey invalid atau server down`)} 
 }
 handler.help = ['stikerly <pencarian>']
 handler.tags = ['sticker']
