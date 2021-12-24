@@ -36,7 +36,7 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'rpg', 'stiker', 'expression', 'kerangajaib', 'quotes', 'admin', 'grup', 'videomaker', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'textpro', 'database', 'spammer', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'rpg', 'stiker', 'expression', 'kerangajaib', 'quotes', 'admin', 'grup', 'anime', 'videomaker', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'textpro', 'database', 'spammer', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Utama',
@@ -49,6 +49,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'quotes': 'Quotes',
     'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
     'group': 'Grup',
+    'anime': 'Anime',
     'videomaker': 'Videomaker',
     'internet': 'Internet',
     'anonymous': 'Anonymous Chat',
@@ -93,6 +94,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'grup') tags = {
     'group': 'Grup'
+  }
+  if (teks == 'anime') tags = {
+    'anime': 'Anime'
   }
   if (teks == 'videomaker') tags = {
     'videomaker': 'Videomaker'
@@ -255,6 +259,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "",
                   "rowId": `${_p}? grup`
                 }, {
+                  "title": "Anime",
+                  "description": "Cari Anime Di Bot",
+                  "rowId": `{_p}? anime`,
+                }, {
                   "title": "Videomaker",
                   "description": "",
                   "rowId": `${_p}? videomaker`
@@ -416,9 +424,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     throw e
   }
 }
-handler.help = ['menu', 'help']
+handler.help = ['menu', 'help', '?']
 handler.tags = ['main']
-handler.command = /^(menu|help)$/i
+handler.command = /^(menu|help|\?)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
