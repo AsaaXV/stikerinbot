@@ -1,4 +1,4 @@
-const { joox } = require('../lib/scrape')
+const { joox } = require('../lib/scrape_joox')
 let handler = async (m, { conn, text, usedPrefix, command, isPrems }) => {
 if (!isPrems) return
     if (!text) throw `*Perintah ini untuk mencari lagu joox berdasarkan pencarian*\n\ncontoh:\n${usedPrefix + command} akad`
