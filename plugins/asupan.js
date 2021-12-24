@@ -7,4 +7,8 @@ handler.command = /^(asupan)$/i
 
 module.exports = handler
 
+function pickRandom(list) {
+  return list[Math.floor(list.length * Math.random())]
+}
+
 global.asupan = ["chika","delvira","ayu","bunga","aura","nisa","ziva","yana","viona","syania","riri","syifa","mama_gina","alcakenya","geayubi","santy","ukhty"]
