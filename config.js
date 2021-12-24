@@ -13,7 +13,7 @@ global.APIs = { // API Prefix
   nrtm: 'https://nurutomo.herokuapp.com',
   pencarikode: 'https://pencarikode.xyz',
   xteam: 'https://api.xteam.xyz',
-  zeks: 'https://api.zeks.xyz',
+  zeks: 'https://api.zeks.me',
   bg: 'http://bochil.ddns.net',
   anu: 'https://api-alphabot.herokuapp.com',
 }
