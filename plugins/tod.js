@@ -8,7 +8,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     if (!res.ok) throw eror
     let result = await res.json()
     let json = result.result
-    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    await conn.send2Button(m.chat, result.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
   if (/^dare$/i.test(command)) {
@@ -16,7 +16,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     if (!res.ok) throw eror
     let result = await res.json()
     let json = result.result
-    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    await conn.send2Button(m.chat, result.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
 }
