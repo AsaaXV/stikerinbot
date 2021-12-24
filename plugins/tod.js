@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     let res = await fetch(API('mel', '/truth', {}, 'apikey'))
     if (!res.ok) throw eror
     let json = await res.json()
-    if (json.result == "") throw json
+    if (json.status) throw json
     await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
@@ -15,7 +15,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     let res = await fetch(API('mel', '/dare', {}, 'apikey'))
     if (!res.ok) throw eror
     let json = await res.json()
-    if (json.result == "") throw json
+    if (json.status) throw json
     await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
