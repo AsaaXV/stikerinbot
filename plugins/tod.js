@@ -6,17 +6,15 @@ let handler = async (m, { conn, command, usedPrefix }) => {
   if (/^truth$/i.test(command)) {
     let res = await fetch(API('mel', '/truth', {}, 'apikey'))
     if (!res.ok) throw eror
-    let result = await res.json()
-    let json = result.result
-    await conn.send2Button(m.chat, result.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    let json = await res.json()
+    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
   if (/^dare$/i.test(command)) {
     let res = await fetch(API('mel', '/dare', {}, 'apikey'))
     if (!res.ok) throw eror
-    let result = await res.json()
-    let json = result.result
-    await conn.send2Button(m.chat, result.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    let json = await res.json()
+    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
 }
