@@ -14,6 +14,8 @@ global.APIs = { // API Prefix
   pencarikode: 'https://pencarikode.xyz',
   xteam: 'https://api.xteam.xyz',
   zeks: 'https://api.zeks.xyz',
+  bg: 'http://bochil.ddns.net',
+  anu: 'https://api-alphabot.herokuapp.com',
 }
 global.APIKeys = { // APIKey nya disini
   // 'https://website': 'apikey'
@@ -25,6 +27,7 @@ global.APIKeys = { // APIKey nya disini
   'https://pencarikode.xyz': 'pais',
   'https://api.xteam.xyz': 'AbilGanss',
   'https://api.zeks.xyz': 'apivinz',
+  'https://api-alphabot.herokuapp.com': 'Alphabot',
 }
 
 // Sticker WM
