@@ -261,7 +261,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                 }, {
                   "title": "Anime",
                   "description": "© botbang",
-                  "rowId": `{_p}? anime`,
+                  "rowId": `{_p}? anime`
                 }, {
                   "title": "Videomaker",
                   "description": "© botbang",
@@ -303,7 +303,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "© botbang",
                   "rowId": `${_p}? textpro`
                 }, {
-                  "title": "Vote & Absen",
+                  "title": "Absen & Vote",
                   "description": "© botbang",
                   "rowId": `${_p}? memek`
                 }, {
