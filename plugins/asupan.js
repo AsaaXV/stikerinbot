@@ -27,6 +27,8 @@ global.asupan = [
   "mama_gina",
   "alcakenya",
   "geayubi",
+  "mangayutri",
+  "bocil",
   "santy",
   "ukhty"
 ]
