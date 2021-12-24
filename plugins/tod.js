@@ -4,17 +4,19 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     await conn.send3Button(m.chat, 'Truth or Dare', '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, 'Acak', `${pickRandom([`${usedPrefix}dare`, `${usedPrefix}truth`])}`, m)
   }
   if (/^truth$/i.test(command)) {
-    let res = await fetch(API('mel', '/api/truth', {}, 'apikey'))
+    let res = await fetch(API('mel', '/truth', {}, 'apikey'))
     if (!res.ok) throw eror
-    let json = await res.json()
-    await conn.send2Button(m.chat, json.message, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    let result = await res.json()
+    let json = result.result
+    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
   if (/^dare$/i.test(command)) {
-    let res = await fetch(API('mel', '/api/dare', {}, 'apikey'))
+    let res = await fetch(API('mel', '/dare', {}, 'apikey'))
     if (!res.ok) throw eror
-    let json = await res.json()
-    await conn.send2Button(m.chat, json.message, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
+    let result = await res.json()
+    let json = result.result
+    await conn.send2Button(m.chat, json.result, '© BotBang', 'Truth', `${usedPrefix}truth`, 'Dare', `${usedPrefix}dare`, m)
 
   }
 }
