@@ -1,5 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-  conn.sendFile(m.chat, API('anu', `/asupan/v2/${pickRandom(asupan)}`, {}, 'apikey'), 'asupan.mp4', '© botbang')
+  conn.sendFile(m.chat, API('anu', `/api/asupan/v2/${pickRandom(asupan)}`, {}, 'apikey'), 'asupan.mp4', '© botbang')
 }
 handler.help = ['asupan']
 handler.tags = ['fun']
