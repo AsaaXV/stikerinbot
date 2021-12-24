@@ -128,8 +128,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'spammer') tags = {
     'spammer': 'Spammer'
   }
-  if (teks == 'memek') tags = {
-    'vote': 'Voting',
+  if (teks == 'vote') tags = {
+    'vote': 'Voter'
+  }
+  if (teks == 'absen') tags = {
     'absen': 'Absen'
   }
   if (teks == 'quran') tags = {
@@ -261,7 +263,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                 }, {
                   "title": "Anime",
                   "description": "© botbang",
-                  "rowId": `{_p}? anime`
+                  "rowId": `${_p}? anime`
                 }, {
                   "title": "Videomaker",
                   "description": "© botbang",
@@ -303,9 +305,13 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "© botbang",
                   "rowId": `${_p}? textpro`
                 }, {
-                  "title": "Absen & Vote",
+                  "title": "Vote",
                   "description": "© botbang",
-                  "rowId": `${_p}? memek`
+                  "rowId": `${_p}? vote`
+                }, {
+                  "title": "Absen",
+                  "description": "© botbang",
+                  "rowId": `${_p}? absen`
                 }, {
                   "title": "Al-Qur\'an",
                   "description": "© botbang",
