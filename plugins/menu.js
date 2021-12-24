@@ -218,117 +218,117 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
               "rows": [
                 {
                   "title": `Semua Perintah`,
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? all`
                 }, {
                   "title": "Game",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? game`
 
                 }, {
                   "title": "XP",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? xp`
                   
                 }, {
                 "title": "Rpg",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? rpg`
                 }, {
                   "title": "Stiker",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? stiker`
                 }, {
                   "title": "Expression",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? expression`
                 }, {
                   "title": "Kerang Ajaib",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? kerangajaib`
                 }, {
                   "title": "Quotes",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? quotes`
                 }, {
                   "title": "Admin",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? admin`
                 }, {
                   "title": "Grup",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? grup`
                 }, {
                   "title": "Anime",
-                  "description": "Cari Anime Di Bot",
+                  "description": "© botbang",
                   "rowId": `{_p}? anime`,
                 }, {
                   "title": "Videomaker",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? videomaker`
                 }, {
                   "title": "Internet",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? internet`
                 }, {
                   "title": "Anonymous",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? anonymous`
                 }, {
                   "title": "Nulis & Logo",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? nulis`
                 }, {
                   "title": "Downloader",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? downloader`
                 }, {
                   "title": "Tools",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? tools`
                 }, {
                   "title": "Fun",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? fun`
                 }, {
                   "title": "Database",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? database`
                 }, {
                   "title": "Spammer",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? spammer`
                 }, {
                   "title": "Textpro",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? textpro`
                 }, {
                   "title": "Vote & Absen",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? memek`
                 }, {
                   "title": "Al-Qur\'an",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? quran`
                 }, {
                   "title": "Pengubah Suara",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? audio`
                 }, {
                   "title": "Jadi Bot",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? jadibot`
                 }, {
                   "title": "Info",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? info`
                 }, {
                   "title": "Tanpa Kategori",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? tanpakategori`
                 }, {
                   "title": "Owner",
-                  "description": "",
+                  "description": "© botbang",
                   "rowId": `${_p}? owner`
                 }
               ]
