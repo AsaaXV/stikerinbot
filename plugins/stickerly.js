@@ -6,21 +6,19 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (!text) throw `*Perintah ini untuk mengambil stiker dari Stickerly berdasarkan pencarian*\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
 
-    let res = await fetch(global.API('zeks', '/api/searchsticker', { q: text }, 'apikey'))
-    if (!res.ok) throw eror
+    let res = await fetch(global.API('xteam', '/sticker/stickerly', { q: text }, 'APIKEY'))
+    if (res.status !== 200) throw await res.text()
     let json = await res.json()
     if (!json.status) throw json
-    let hasil = json.sticker.map((v, i) => `${i + 1}. ${v}`).join('\n')
-    m.reply(`*${json.title}*
-*Estimasi selesai:* ${json.sticker.length * 1.5} detik
-`.trim())
+    m.reply(`
+*Total stiker:* ${json.result.stickerlist.length}
+        `.trim())
 
-    for (let i of json.sticker) {
+    for (let i of json.result.stickerlist) {
         stiker = await sticker(false, i, global.packname, global.author)
-        await conn.sendMessage(m.chat, stiker, MessageType.sticker)
+        await conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m })
         await delay(1500)
     }
-    m.reply('_*Selesai*_')
 
 }
 handler.help = ['stikerly <pencarian>']

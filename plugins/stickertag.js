@@ -4,7 +4,7 @@ const util = require('util')
 const fs = require('fs')
 let handler = async (m, { conn, participants, args }) => {
 let stiker = false
-     await m.reply("wait")
+     await m.reply(global.wait)
   try {
 	let q = { message: { [m.quoted.mtype]: m.quoted }}
 	if (!m.quoted) return m.reply('Tag Stickernya!')
@@ -20,12 +20,15 @@ let stiker = false
                }
           })
        } else {
-	    m.reply('_Khusus Sticker Aja Ya_')
+	    m.reply('Stiker kah itu?')
       }
    } catch (e) {
    	m.reply('```Error```')
    console.log ('Error\n\n', e)
    }
+}
+    else throw 'Conversion failed'
+  }
 }
 handler.help = ['stag <reply sticker>', 'stickertag <replay sticker>', 'stikertag <reply sticker>']
 handler.tags = ['sticker']
