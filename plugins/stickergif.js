@@ -57,12 +57,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
             .save(ran)
     } else throw gokil
 }
-handler.help = ['stiker2']
+handler.help = ['stiker2', 'sgif']
 handler.tags = ['sticker']
-handler.command = /^(s(t|k|tic?ker)?2)$/i
+handler.command = /^(s(t|k|tic?ker)?2|(s(tic?ker|k|t)?)?gif)$/i
 
-handler.disabled = true
-
+handler.disable = true
 module.exports = handler
 
 const getRandom = (ext) => {
